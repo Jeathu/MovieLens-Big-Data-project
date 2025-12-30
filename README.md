@@ -237,9 +237,7 @@ hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-*.jar \
 ---
 
 
-## Licence et citations
-
-- Le code du dépôt est libre (ajoutez ici la licence que vous souhaitez utiliser).
+## Licence
 - Les données MovieLens sont soumises à la licence/citation décrite dans `data/data_guide.md`.
 
 <br>
