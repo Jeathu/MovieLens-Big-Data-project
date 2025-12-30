@@ -1,0 +1,56 @@
+# Terraform files
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+terraform.tfvars.backup
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# SSH keys
+*.pem
+*.key
+id_rsa*
+hadoop_ssh_key.pem
+hadoop_ssh_key.pub
+
+
+# Terraform
+*.tfstate
+*.tfstate.backup
+*.tfplan
+.terraform/
+.terraform.lock.hcl
+
+
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Local .terraform directories
+**/.terraform/*
+
+# Variable files that may contain secrets
+*.auto.tfvars
+*.auto.tfvars.json
+
+# Backup files
+*.backup
+*.bak
+
+# Log files
+*.log
+
+# Tout les fichiers txt
+*.txt
+**/tx/**
+
+#excl
+*.excalidraw
+vscode
+*.vscode
+
+
