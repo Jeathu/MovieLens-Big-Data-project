@@ -2,16 +2,21 @@
 
 **Project** : Déploiement et utilisation d'un cluster distribué Hadoop/Hive (sur Azure via Terraform) pour analyser le dataset MovieLens (ratings, movies, users) et exécuter des jobs MapReduce et des requêtes Hive.
 
+
+
+## Accèsible du projet
+
+* **Vidéo de démonstration :** [vidéo du projet](https://e.pcloud.link/publink/show?code=kZAQnNZvzWdFnVGhhRb4O0EnUyWtjw6SlfV)
+* **Dépôt GitHub (Code source) :** [Code source](https://github.com/Jeathu/MovieLens-Big-Data-project)
+
 <br>
 
 __*@- Voire les fichirs README dans les sous-dossiers `terraform/_terraforme_setup.md` et `src/MapReduce/_MapReduce_readme.md` pour des instructions détaillées.*__
 
-Liens de vidéo de la procédure complète du projet: [vidéo du projet](https://e.pcloud.link/publink/show?code=kZAQnNZvzWdFnVGhhRb4O0EnUyWtjw6SlfV)
-
-<br>
+## Conformité avec le Sujet
 
 
-![Cluster Hadoop](./images/hadoop_acc.png)
+![Cluster Hadoop](./images/Hadoop_acccc.png)
 
 
 Le cluster se compose de 3 machines virtuelles exécutant **Ubuntu 20.04 LTS** :
@@ -23,6 +28,21 @@ Le cluster se compose de 3 machines virtuelles exécutant **Ubuntu 20.04 LTS** :
 | **Worker 2** | `hadoop-worker2` | DataNode, NodeManager 
 
 <br>
+
+### Architecture du cluster Hadoop déployé :
+![Architecture Hadoop](./images/terraform.png)
+
+<br>
+
+#### - Visualisation Hadoop YARN ResourceManager UI - Master Node:
+![Hadoop UI](./images/Hadoop_ui.png)
+![datanode Hadoop](./images/datanode_ui.png)
+
+<br>
+
+#### - Datanode fonctionnment :
+![datanode_fcc](./images/fcc_datanode.png)
+
 <br>
 
 ---
@@ -224,14 +244,26 @@ hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-*.jar \
 
 ---
 
-## Astuces et dépannage
+## Démostration avec Apache Superset
 
-- Si un job Hadoop échoue, inspecter les logs YARN et les logs des conteneurs sous `/var/log/hadoop`.
-- Vérifiez que `JAVA_HOME` est bien défini (OpenJDK 8 recommandé pour Hive 3.x).
-- Problèmes SSH : vérifier permissions de la clé `chmod 600` et `~/.ssh/authorized_keys` du user `hadoop`.
+* __Les différents type des films avec leur pourcentage :__
 
+![superset_diagramme](./images/Superset_diagramme.png)
+![sci_fi](./images/sci_fi.png)
+![west](./images/west.png)
+<br>
+
+
+
+* __Les différants gout des hommes et des femmes dans les type des film :__
+
+![man_vs_women](./images/man_vs_women.png)
 
 <br>
+
+* __Les différants rating donné par age :__
+![age.png](./images/age.png)
+
 <br>
 
 ---
