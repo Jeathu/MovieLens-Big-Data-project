@@ -1,0 +1,81 @@
+
+    <html>
+    <head><meta charset="utf-8"><title>Rapport MovieLens</title><style>
+    body{font-family:Arial, sans-serif; margin:20px; background:#0b0f19; color:#e6e6e6;}
+    .card{background:#121a2a; border:1px solid #26324a; border-radius:12px; padding:16px; margin-bottom:16px;}
+    h1{margin:0 0 6px 0;}
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px;}
+    .kpi{font-size:22px; font-weight:bold;}
+    table{width:100%; border-collapse:collapse; margin-top:10px;}
+    th,td{border-bottom:1px solid #26324a; padding:8px; text-align:left;}
+    th{color:#b7c4ff;}
+    .muted{color:#9aa6bd;}
+    </style></head>
+    <body>
+      <div class="card">
+        <h1>Rapport MovieLens (Hadoop/Dataproc)</h1>
+        <div class="muted">Généré le 2025-12-30 23:02:18</div>
+      </div>
+
+      <div class="grid">
+        <div class="card"><div class="muted">Films</div><div class="kpi">3883</div></div>
+        <div class="card"><div class="muted">Évaluations</div><div class="kpi">1000209</div></div>
+        <div class="card"><div class="muted">Votes/film (moy.)</div><div class="kpi">257</div></div>
+      </div>
+
+      <div class="card">
+        <h2>Distribution des notes</h2>
+        
+        <div style="margin:8px 0">
+          <div class="muted">1 étoiles — 56174 (5.62%)</div>
+          <div style="background:#26324a; height:10px; border-radius:8px; overflow:hidden">
+            <div style="width:48px; height:10px; background:#7aa2ff"></div>
+          </div>
+        </div>
+        
+        <div style="margin:8px 0">
+          <div class="muted">2 étoiles — 107557 (10.75%)</div>
+          <div style="background:#26324a; height:10px; border-radius:8px; overflow:hidden">
+            <div style="width:92px; height:10px; background:#7aa2ff"></div>
+          </div>
+        </div>
+        
+        <div style="margin:8px 0">
+          <div class="muted">3 étoiles — 261197 (26.11%)</div>
+          <div style="background:#26324a; height:10px; border-radius:8px; overflow:hidden">
+            <div style="width:224px; height:10px; background:#7aa2ff"></div>
+          </div>
+        </div>
+        
+        <div style="margin:8px 0">
+          <div class="muted">4 étoiles — 348971 (34.89%)</div>
+          <div style="background:#26324a; height:10px; border-radius:8px; overflow:hidden">
+            <div style="width:300px; height:10px; background:#7aa2ff"></div>
+          </div>
+        </div>
+        
+        <div style="margin:8px 0">
+          <div class="muted">5 étoiles — 226310 (22.63%)</div>
+          <div style="background:#26324a; height:10px; border-radius:8px; overflow:hidden">
+            <div style="width:194px; height:10px; background:#7aa2ff"></div>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="card">
+        <h2>Top 15 films les plus populaires</h2>
+        <table><tr><th>Titre</th><th>Votes</th><th>Note moy.</th></tr>
+        <tr><td>American Beauty (1999)</td><td>3428</td><td>4.32</td></tr><tr><td>Star Wars: Episode IV - A New Hope (1977)</td><td>2991</td><td>4.45</td></tr><tr><td>Star Wars: Episode V - The Empire Strikes Back (1980)</td><td>2990</td><td>4.29</td></tr><tr><td>Star Wars: Episode VI - Return of the Jedi (1983)</td><td>2883</td><td>4.02</td></tr><tr><td>Jurassic Park (1993)</td><td>2672</td><td>3.76</td></tr><tr><td>Saving Private Ryan (1998)</td><td>2653</td><td>4.34</td></tr><tr><td>Terminator 2: Judgment Day (1991)</td><td>2649</td><td>4.06</td></tr><tr><td>Matrix, The (1999)</td><td>2590</td><td>4.32</td></tr><tr><td>Back to the Future (1985)</td><td>2583</td><td>3.99</td></tr><tr><td>Silence of the Lambs, The (1991)</td><td>2578</td><td>4.35</td></tr><tr><td>Men in Black (1997)</td><td>2538</td><td>3.74</td></tr><tr><td>Raiders of the Lost Ark (1981)</td><td>2514</td><td>4.48</td></tr><tr><td>Fargo (1996)</td><td>2513</td><td>4.25</td></tr><tr><td>Sixth Sense, The (1999)</td><td>2459</td><td>4.41</td></tr><tr><td>Braveheart (1995)</td><td>2443</td><td>4.23</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>Top 15 films les mieux notés (min 200 votes)</h2>
+        <table><tr><th>Titre</th><th>Note moy.</th><th>Votes</th></tr>
+        <tr><td>Seven Samurai (The Magnificent Seven) (Shichinin no samurai) (1954)</td><td>4.56</td><td>628</td></tr><tr><td>Shawshank Redemption, The (1994)</td><td>4.55</td><td>2227</td></tr><tr><td>Close Shave, A (1995)</td><td>4.52</td><td>657</td></tr><tr><td>Godfather, The (1972)</td><td>4.52</td><td>2223</td></tr><tr><td>Usual Suspects, The (1995)</td><td>4.52</td><td>1783</td></tr><tr><td>Schindler&#x27;s List (1993)</td><td>4.51</td><td>2304</td></tr><tr><td>Wrong Trousers, The (1993)</td><td>4.51</td><td>882</td></tr><tr><td>Sunset Blvd. (a.k.a. Sunset Boulevard) (1950)</td><td>4.49</td><td>470</td></tr><tr><td>Raiders of the Lost Ark (1981)</td><td>4.48</td><td>2514</td></tr><tr><td>Rear Window (1954)</td><td>4.48</td><td>1050</td></tr><tr><td>Paths of Glory (1957)</td><td>4.47</td><td>230</td></tr><tr><td>Third Man, The (1949)</td><td>4.45</td><td>480</td></tr><tr><td>Star Wars: Episode IV - A New Hope (1977)</td><td>4.45</td><td>2991</td></tr><tr><td>Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb (1963)</td><td>4.45</td><td>1367</td></tr><tr><td>To Kill a Mockingbird (1962)</td><td>4.43</td><td>928</td></tr>
+        </table>
+      </div>
+    </body>
+    </html>
+    
