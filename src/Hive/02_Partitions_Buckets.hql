@@ -179,7 +179,7 @@ FROM ratings;
 
 
 -- DESCRIBE FORMATTED ratings_bucketed;
--- SELECT COUNT(*) FROM ratings_bucketed TABLESAMPLE(BUCKET 1 OUT OF 10 ON user_id);
+SELECT COUNT(*) FROM ratings_bucketed TABLESAMPLE(BUCKET 1 OUT OF 10 ON user_id);
 
 
 

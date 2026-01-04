@@ -52,5 +52,8 @@ crash.*.log
 *.excalidraw
 vscode
 *.vscode
+excalidraw
+superset_docker
+tx
 
 
