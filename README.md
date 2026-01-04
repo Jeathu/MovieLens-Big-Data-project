@@ -1,46 +1,46 @@
-# __*MovieLens —  Cluster Hadoop distribué Hadoop / Hive + Analyse*__
+# **MovieLens — Cluster Hadoop distribué / Hive + Analyse**
 
-**Project** : Déploiement et utilisation d'un cluster distribué Hadoop/Hive (sur Azure via Terraform) pour analyser le dataset MovieLens (ratings, movies, users) et exécuter des jobs MapReduce et des requêtes Hive.
+**Projet** : Déploiement et utilisation d'un cluster distribué Hadoop/Hive (sur Azure via Terraform) pour analyser le dataset MovieLens (ratings, movies, users) et exécuter des jobs MapReduce et des requêtes Hive.
 
+## Accessibilité du projet
 
-
-## Accèsible du projet
-
-* **Vidéo de démonstration :** [vidéo du projet](https://e.pcloud.link/publink/show?code=kZAQnNZvzWdFnVGhhRb4O0EnUyWtjw6SlfV)
-* **Dépôt GitHub (Code source) :** [Code source](https://github.com/Jeathu/MovieLens-Big-Data-project)
+- **Vidéo de démonstration :** [Vidéo du projet](https://e.pcloud.link/publink/show?code=kZAQnNZvzWdFnVGhhRb4O0EnUyWtjw6SlfV)
+- **Dépôt GitHub :** [Code source](https://github.com/Jeathu/MovieLens-Big-Data-project)
+- **Rapport détaillé :** [Rapport détaillé](https://e.pcloud.link/publink/show?code=XZ9NwNZkcP4CMO70tSJPSJo6WgkwBU0Tak7)
 
 <br>
 
-__*@- Voire les fichirs README dans les sous-dossiers `terraform/_terraforme_setup.md` et `src/MapReduce/_MapReduce_readme.md` pour des instructions détaillées.*__
+> **Note :** Consultez les fichiers README dans les sous-dossiers `terraform/_terraforme_setup.md` et `src/MapReduce/_MapReduce_readme.md` pour des instructions détaillées.
 
 ## Conformité avec le Sujet
 
-
 ![Cluster Hadoop](./images/Hadoop_acccc.png)
-
 
 Le cluster se compose de 3 machines virtuelles exécutant **Ubuntu 20.04 LTS** :
 
-|     Rôle     |    Nom d'hôte    |  Composants                                |
+|     Rôle     |    Nom d'hôte    | Composants                                |
 | :----------: | :--------------: | :---------------------------------------- |
 |  **Master**  | `hadoop-master`  | NameNode, ResourceManager, Metastore Hive |
 | **Worker 1** | `hadoop-worker1` | DataNode, NodeManager                     |
-| **Worker 2** | `hadoop-worker2` | DataNode, NodeManager 
+| **Worker 2** | `hadoop-worker2` | DataNode, NodeManager                     |
 
 <br>
 
 ### Architecture du cluster Hadoop déployé :
+
 ![Architecture Hadoop](./images/terraform.png)
 
 <br>
 
 #### - Visualisation Hadoop YARN ResourceManager UI - Master Node:
+
 ![Hadoop UI](./images/Hadoop_ui.png)
 ![datanode Hadoop](./images/datanode_ui.png)
 
 <br>
 
-#### - Datanode fonctionnment :
+#### - Datanode fonctionnement :
+
 ![datanode_fcc](./images/fcc_datanode.png)
 
 <br>
@@ -49,7 +49,7 @@ Le cluster se compose de 3 machines virtuelles exécutant **Ubuntu 20.04 LTS** :
 
 ## Contenu du dépôt du projet
 
-- `data/`  -> Guide et description du dataset MovieLens
+- `data/` -> Guide et description du dataset MovieLens
 - `src/Hive/` — Scripts HQL : création de tables, partitions/buckets, analyses et système de recommandation
   - `01_Tables.hql`, `02_Partitions_Buckets.hql`, `03_Analyses.hql`, `04_Sys_Recommandation.hql`
 - `src/MapReduce/` — Scripts Python pour Hadoop Streaming (mappers/reducers)
@@ -57,17 +57,16 @@ Le cluster se compose de 3 machines virtuelles exécutant **Ubuntu 20.04 LTS** :
 - `terraform/` — Infrastructure as Code pour provisionner un cluster Azure (VMs, réseau, NSG, provisioners) + scripts d'installation
   - `main.tf`, `variables.tf`, `terraform.tfvars`, `scripts/bootstrap_master.sh`, `scripts/bootstrap_worker.sh`, `scripts/complete_setup.sh`, `scripts/diagnose_cluster.sh`
 
-
-
 <br>
 <br>
 
 ---
+
 ## Arborescence du projet
 
 Voici l'arborescence actuelle du dépôt :
 
-``` C
+```C
 
 ├── data/
 │
@@ -122,11 +121,10 @@ Voici l'arborescence actuelle du dépôt :
 
 ## Prérequis
 
-- Terraform >= 1.0
-- Azure CLI (`az login`)
-- Accès à un terminal Unix (Linux/macOS ou WSL sous Windows)
-- Python3 (pour exécuter les scripts MapReduce en local ou sur les nœuds)
-
+- **Terraform** >= 1.0
+- **Azure CLI** (authentification via `az login`)
+- **Terminal Unix** (Linux/macOS ou WSL sous Windows)
+- **Python 3** (pour l'exécution des scripts MapReduce)
 
 <br>
 <br>
@@ -135,7 +133,9 @@ Voici l'arborescence actuelle du dépôt :
 
 ## Déploiement rapide (Azure + Terraform)
 
-1. Se placer dans `terraform/` :
+### Étapes de déploiement
+
+1. **Initialisation du projet** - Se placer dans le répertoire `terraform/` :
 
 ```bash
 cd terraform
@@ -143,16 +143,21 @@ terraform init
 terraform apply -auto-approve
 ```
 
-2. À la fin, Terraform génère une clé (`hadoop_ssh_key.pem`) et affiche les IP publiques.
-3. Copier la clé et corriger ses permissions (ex. `chmod 600 hadoop_ssh_key.pem`).
-4. Mettre à jour `fix_cluster.sh` avec les IPs publiques (si besoin) et exécuter :
+2. **Récupération des informations** - À la fin, Terraform génère une clé (`hadoop_ssh_key.pem`) et affiche les adresses IP publiques.
+
+3. **Configuration des permissions** - Copier la clé et corriger ses permissions :
+
+```bash
+chmod 600 hadoop_ssh_key.pem
+```
+
+4. **Finalisation du cluster** - Mettre à jour `fix_cluster.sh` avec les IPs publiques (si nécessaire) et exécuter :
 
 ```bash
 bash fix_cluster.sh
 ```
 
 > Le script `bootstrap_master.sh` et `bootstrap_worker.sh` sont uploadés et exécutés automatiquement via des provisioners Terraform. Ils installent Java 8, Hadoop et Hive et configurent SSH sans mot de passe pour l'utilisateur `hadoop`.
-
 
 <br>
 <br>
@@ -176,6 +181,7 @@ sudo -u hadoop /opt/hadoop/bin/yarn node -list
 # Lancer un exemple MapReduce (pi) pour vérifier YARN
 sudo -u hadoop /opt/hadoop/bin/yarn jar /opt/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar pi 2 100
 ```
+
 <br>
 <br>
 
@@ -201,10 +207,9 @@ sudo -u hadoop hdfs dfs -put ratings.dat /user/movielens/ratings/
 
 ---
 
-
 ## Exemples d'utilisation
 
-### 1) Jobs MapReduce (Hadoop Streaming) -  Voir `src/MapReduce/_MapReduce_readme.md` pour plus de détails
+### 1) Jobs MapReduce (Hadoop Streaming) - Voir `src/MapReduce/_MapReduce_readme.md` pour plus de détails
 
 - Moyenne des ratings par film :
 
@@ -224,8 +229,8 @@ hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-*.jar \
 ### 2) Requêtes Hive - Voir `src/Hive/` pour plus de détails
 
 - Charger les tables : ouvrez `hive` puis exécutez `01_Tables.hql` pour créer les tables externes.
-- Utilisez `02_Partitions_Buckets.hql` pour apprendre/implémenter partitionning et bucketing.
-- Exécutez `03_Analyses.hql` pour des requêtes analytiques (top films, genres, user activity).
+- Utilisez `02_Partitions_Buckets.hql` pour apprendre/implémenter le partitioning et le bucketing.
+- Exécutez `03_Analyses.hql` pour des requêtes analytiques (top films, genres, activité utilisateur).
 - `04_Sys_Recommandation.hql` contient des exemples de recommandations (collaborative & content-based simples).
 
 <br>
@@ -233,43 +238,40 @@ hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-*.jar \
 
 ---
 
-##  Tests et vérifications
+## Tests et vérifications
 
 - Vérifier HDFS : `hdfs dfs -ls /user/movielens`
 - Vérifier Hive : `hive -f src/Hive/01_Tables.hql` puis `SHOW TABLES; SELECT COUNT(*) FROM ratings;`
-- Logs bootstrap : `/home/hadoop/bootstrap.log` (sur chaque noeud)
+- Logs bootstrap : `/home/hadoop/bootstrap.log` (sur chaque nœud)
 
 <br>
 <br>
 
 ---
 
-## Démostration avec Apache Superset
+## Démonstration avec Apache Superset
 
-* __Les différents type des films avec leur pourcentage :__
+### Distribution des types de films
 
 ![superset_diagramme](./images/Superset_diagramme.png)
-![sci_fi](./images/sci_fi.png)
-![west](./images/west.png)
-<br>
 
+<img src="./images/sci_fi.png" alt="Distribution Science-Fiction" width="400"/>
+<img src="./images/west.png" alt="Distribution Western" width="400"/>
 
-
-* __Les différants gout des hommes et des femmes dans les type des film :__
+### Analyse comparative des préférences par genre
 
 ![man_vs_women](./images/man_vs_women.png)
 
-<br>
+### Notation par tranche d'âge
 
-* __Les différants rating donné par age :__
-![age.png](./images/age.png)
+![age](./images/age.png)
 
 <br>
 
 ---
 
-
 ## Licence
+
 - Les données MovieLens sont soumises à la licence/citation décrite dans `data/data_guide.md`.
 
 <br>
