@@ -293,7 +293,7 @@ DESCRIBE FORMATTED ratings_optimized;
 
 
 -- ---------------------------------------------------------------------------
--- 3.2 : Requête ultra-optimisée
+-- 3.2 : Requête optimisée
 -- ---------------------------------------------------------------------------
 -- Cette requête bénéficie des deux optimisations:
 -- 1. Partition pruning (rating = 5)

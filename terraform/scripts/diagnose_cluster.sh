@@ -50,10 +50,10 @@ echo ""
 # Vérifier le répertoire Hadoop
 echo "=== 5. Hadoop Installation ==="
 if [ -d /opt/hadoop ]; then
-  echo "  ✓ /opt/hadoop exists"
+  echo "  /opt/hadoop exists"
   /opt/hadoop/bin/hadoop version 2>/dev/null || echo "  WARNING: hadoop command failed"
 else
-  echo "  ✗ /opt/hadoop missing"
+  echo "  /opt/hadoop missing"
 fi
 echo ""
 
@@ -63,10 +63,10 @@ echo ""
 # Verifier le fichier workers
 echo "=== 6. Workers File ==="
 if [ -f /opt/hadoop/etc/hadoop/workers ]; then
-  echo "  ✓ workers file exists:"
+  echo "  workers file exists:"
   cat /opt/hadoop/etc/hadoop/workers | sed 's/^/    /'
 else
-  echo "  ✗ workers file missing"
+  echo "  workers file missing"
 fi
 echo ""
 
@@ -75,9 +75,9 @@ echo ""
 # Vérifier la configuration YARN
 echo "=== 7. YARN Configuration ==="
 if [ -f /opt/hadoop/etc/hadoop/yarn-site.xml ]; then
-  echo "  ✓ yarn-site.xml exists"
+  echo "  yarn-site.xml exists"
 else
-  echo "  ✗ yarn-site.xml missing"
+  echo "  yarn-site.xml missing"
 fi
 echo ""
 
@@ -86,9 +86,9 @@ echo ""
 # Vérifier la configuration MapReduce
 echo "=== 8. MapReduce Configuration ==="
 if [ -f /opt/hadoop/etc/hadoop/mapred-site.xml ]; then
-  echo "  ✓ mapred-site.xml exists"
+  echo "  mapred-site.xml exists"
 else
-  echo "  ✗ mapred-site.xml missing"
+  echo "  mapred-site.xml missing"
 fi
 echo ""
 
@@ -99,7 +99,7 @@ echo ""
 # Vérifier Hive (seulement sur le master)
 echo "=== 9. Hive Installation ==="
 if [ -d /opt/hive ]; then
-  echo "  ✓ /opt/hive exists"
+  echo "  /opt/hive exists"
   /opt/hive/bin/hive --version 2>/dev/null | head -1 || echo "  WARNING: hive command failed"
 else
   echo "  Hive not installed (expected on workers)"
@@ -111,9 +111,9 @@ echo ""
 # Vérifier le formatage du NameNode
 echo "=== 10. NameNode Format Status ==="
 if [ -d "/home/hadoop/hadoopdata/namenode/current" ]; then
-  echo "  ✓ NameNode is formatted"
+  echo "  NameNode is formatted"
 else
-  echo "  ✗ NameNode NOT formatted (run: hdfs namenode -format)"
+  echo "  NameNode NOT formatted (run: hdfs namenode -format)"
 fi
 echo ""
 

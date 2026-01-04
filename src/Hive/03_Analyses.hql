@@ -9,7 +9,6 @@ SET hive.resultset.use.unique.column.names=false;
 -- Top 10 des films les mieux notés
 ----------------------------------------------------------------------------
 
-
 -- Films avec au moins 100 votes pour éviter les biais
 SELECT 
     m.title,
@@ -42,6 +41,7 @@ ORDER BY total_ratings DESC;
 
 
 
+
 -- Comportement des utilisateurs par âge
 SELECT 
     CASE 
@@ -60,6 +60,7 @@ FROM ratings r
 JOIN users u ON r.user_id = u.user_id
 GROUP BY u.age
 ORDER BY u.age;
+
 
 
 
@@ -102,6 +103,8 @@ ORDER BY rating_stddev DESC
 LIMIT 10;
 
 
+
+
 -- 2. Films les plus populaires (nombre de votes)
 SELECT 
     m.title,
@@ -113,6 +116,8 @@ JOIN movies m ON r.movie_id = m.movie_id
 GROUP BY m.movie_id, m.title, m.genres
 ORDER BY num_ratings DESC
 LIMIT 10;
+
+
 
 
 -- 3. Genres préférés par tranche d'âge
@@ -142,9 +147,6 @@ ORDER BY age_group, num_ratings DESC;
 
 
 
-
-
-
 -- 4. Différence de goûts entre hommes et femmes
 SELECT 
     g.genre,
@@ -163,6 +165,8 @@ GROUP BY g.genre
 ORDER BY (male_ratings + female_ratings) DESC;
 
 
+
+
 -- 5. Utilisateurs les plus actifs
 SELECT 
     u.user_id,
@@ -175,6 +179,8 @@ JOIN users u ON r.user_id = u.user_id
 GROUP BY u.user_id, u.gender, u.age
 ORDER BY num_ratings DESC
 LIMIT 20;
+
+
 
 
 -- 6. Genres qui reçoivent les meilleures notes

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 Reducer pour compter les films par genre
-Input: Genre \t 1 (sorted by Genre)
-Output: Genre \t Count
+Input: Genre 1 (sorted by Genre)
+Output: Genre Count
 """
 import sys
 

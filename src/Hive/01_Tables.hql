@@ -22,7 +22,8 @@ LOCATION '/user/movielens/ratings';
 
 
 
--- Table MOVIES avec RegexSerDe
+
+-- Table MOVIES 
 CREATE EXTERNAL TABLE IF NOT EXISTS movies (
     movie_id INT,
     title STRING,
@@ -37,7 +38,8 @@ LOCATION '/user/movielens/movies';
 
 
 
--- Table USERS avec RegexSerDe
+
+-- Table USERS
 CREATE EXTERNAL TABLE IF NOT EXISTS users (
     user_id INT,
     gender STRING,
@@ -55,8 +57,6 @@ LOCATION '/user/movielens/users';
 
 
 
-
-
 -- Vérifier que les tables sont bien chargées
 SHOW TABLES;
 SELECT * FROM ratings LIMIT 5;
@@ -64,7 +64,7 @@ SELECT * FROM movies LIMIT 5;
 SELECT * FROM users LIMIT 5;
 
 
--- Nettoyer les tables (si besoin)
+-- Nettoyer les tables
 DROP TABLE IF EXISTS ratings;
 DROP TABLE IF EXISTS movies;
 DROP TABLE IF EXISTS users;

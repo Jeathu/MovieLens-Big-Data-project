@@ -2,7 +2,7 @@
 """
 Mapper pour calculer la moyenne des ratings par film
 Input: ratings.dat (UserID::MovieID::Rating::Timestamp)
-Output: MovieID \t Rating
+Output: MovieID Rating
 """
 import sys
 

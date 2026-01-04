@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# Configuration des IPs (basé sur ton cluster actuel)
+# Configuration des IPs (basé sur cluster actuel)
 KEY="$HOME/my_key.pem"
 MASTER_IP="4.233.102.34"
 WORKER1_IP="4.178.76.144"

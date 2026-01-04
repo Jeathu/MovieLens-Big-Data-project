@@ -2,7 +2,7 @@
 """
 Mapper pour analyser l'activité des utilisateurs
 Input: ratings.dat (UserID::MovieID::Rating::Timestamp)
-Output: UserID \t Rating
+Output: UserID Rating
 """
 import sys
 
